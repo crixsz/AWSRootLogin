@@ -3,8 +3,15 @@
             then echo "You are not running as root. Please run the script as root or using sudo."
             
         fi
-        echo "Changing SSH config.."
-        #!/bin/bash
+        clear
+        #asking user to input hostname 
+        echo "======================"
+        echo "Enter your hostname:"
+        echo "======================"
+        read hostuser
+        hostnamectl set-hostname $hostuser
+        echo "Successfully changed hostname.."
+        sleep 2
 
         if ! command -v sed &> /dev/null
         then
