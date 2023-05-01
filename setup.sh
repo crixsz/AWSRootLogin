@@ -1,7 +1,7 @@
         # This is the initialization script that will get the password from encrypted .env file
-        if [ "$EUID" -ne 0 ]
-            then echo "You are not running as root. Please run the script as root or using sudo."
-            
+        if [ "$(id -u)" != "0" ]; then
+            echo "This script must be run as root."
+            exit 1
         fi
         clear
         #asking user to input hostname 
